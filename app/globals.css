@@ -1,0 +1,77 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bootstrap Icons */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+  --glass-bg: rgba(255,255,255,0.18);
+  --glass-brd: rgba(255,255,255,0.35);
+  --text: #0f172a;
+}
+
+/* Animated multi-color gradient background */
+html, body {
+  height: 100%;
+}
+body {
+  color: var(--text);
+  background: linear-gradient(135deg, #b3e5ff, #cdb4ff, #ffb3d1, #ffd0a8);
+  background-size: 300% 300%;
+  animation: bgshift 40s ease infinite;
+}
+
+/* Parallax-ish effect */
+.bg-parallax { background-attachment: fixed; }
+
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-brd);
+  border-radius: 16px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+}
+
+/* Reflection */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05) 35%, rgba(255,255,255,0) 60%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: .6;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+
+.header-blur {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.55);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.08);
+}
+.btn-primary {
+  @apply btn;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #f59e0b);
+  color: #0f172a;
+}
+.btn-ghost { @apply btn bg-white/60 hover:bg-white/80; }
+
+.card-hover { transition: transform .2s ease, box-shadow .2s ease; }
+.card-hover:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+
+.section { margin-top: 28px; }
+
+.reveal { opacity: 0; transform: translateY(12px); }
+.reveal.show { animation: reveal 700ms ease forwards; }
