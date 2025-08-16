@@ -1,6 +1,6 @@
-
 import './globals.css'
 import type { Metadata } from 'next'
+import Navbar from '../components/Navbar'
 
 export const metadata: Metadata = {
   title: 'Ugochukwu Meshach – Full‑Stack Developer',
@@ -11,28 +11,29 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        />
+      </head>
       <body className="bg-parallax">
-        <header className="header-blur">
-          <div className="container flex items-center justify-between">
-            <a href="/" className="flex items-center gap-2 font-extrabold text-lg">
-              <i className="bi bi-brilliance text-xl"></i>
-              <span>Ugochukwu Meshach</span>
-            </a>
-            <nav className="flex items-center gap-3">
-              <a className="btn-ghost" href="/projects"><i className="bi bi-grid-3x3-gap"></i> Projects</a>
-              <a className="btn-ghost" href="/about"><i className="bi bi-person-badge"></i> About</a>
-              <a className="btn-ghost" href="/hire-me"><i className="bi bi-envelope-paper-heart"></i> Hire Me</a>
-              <a className="btn-ghost" href="/resume.pdf"><i className="bi bi-download"></i> Download Resume</a>
-            </nav>
-          </div>
-        </header>
-        {children}
+        <Navbar />
+        <main className="mt-16">{children}</main>
         <footer className="container section text-sm text-gray-700">
           <div className="glass relative p-4 flex flex-wrap items-center justify-between">
             <p>© {new Date().getFullYear()} Ugochukwu Meshach</p>
             <div className="flex items-center gap-3">
-              <a className="btn-ghost" href="https://github.com/ugobuez" target="_blank"><i className="bi bi-github"></i> GitHub</a>
-              <a className="btn-ghost" href="https://www.linkedin.com/in/ugochukwu-meshach-69b830285" target="_blank"><i className="bi bi-linkedin"></i> LinkedIn</a>
+              <a className="btn-ghost" href="https://github.com/ugobuez" target="_blank">
+                <i className="bi bi-github mr-1"></i> GitHub
+              </a>
+              <a
+                className="btn-ghost"
+                href="https://www.linkedin.com/in/ugochukwu-meshach-69b830285"
+                target="_blank"
+              >
+                <i className="bi bi-linkedin mr-1"></i> LinkedIn
+              </a>
             </div>
           </div>
         </footer>

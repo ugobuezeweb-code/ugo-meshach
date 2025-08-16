@@ -1,4 +1,4 @@
-// File: /Users/apple/Downloads/ugomeshach-portfolio/app/hire-me/page.tsx
+// File: /Users/apple/ugo-meshach/app/hire-me/page.tsx
 import * as entry from '../../../../app/hire-me/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
