@@ -9,7 +9,7 @@ export default function Contact() {
   const [msg, setMsg] = useState('');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  async function onSubmit(e) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus('sending');
     setMsg('');
@@ -24,8 +24,8 @@ export default function Contact() {
 
       // Send email using EmailJS
       const response = await send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, // service_h7t7kdh
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, // template_czpdmks
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, // service_h7t7kdh
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, // template_czpdmks
         {
           Portfolio: 'Portfolio', // Matches your test parameter
           name: formData.name,
@@ -33,7 +33,7 @@ export default function Contact() {
           from_email: formData.email,
           to_email: process.env.CONTACT_TO, // ugobuezeweb@gmail.com
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
       if (response.status === 200) {
@@ -52,7 +52,7 @@ export default function Contact() {
   }
 
   // Handle form input changes
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
