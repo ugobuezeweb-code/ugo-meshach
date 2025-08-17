@@ -10,7 +10,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="header-blur fixed top-0 p-5 m-5 left-0 w-full z-50">
+    <header className="header-blur fixed top-0 left-0 w-full z-50">
       <nav className="navbar container flex items-center justify-between py-3">
         <a href="/" className="flex items-center gap-2 font-extrabold text-lg text-[var(--text)]">
           <i className="bi bi-brilliance text-xl"></i>
